@@ -156,7 +156,7 @@ def parse_requirements(path: Path) -> Manifest:
                 line,
                 source=path.as_posix(),
                 scope=scope,
-                line=line_number,
+                line_number=line_number,
             )
             if dependency is not None:
                 manifest.dependencies.append(dependency)
@@ -656,4 +656,3 @@ def _name_from_node_modules_path(package_path: str) -> str | None:
     if parts[0].startswith("@") and len(parts) > 1:
         return f"{parts[0]}/{parts[1]}"
     return parts[0]
-
